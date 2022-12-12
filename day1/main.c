@@ -2,13 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-/*
- *
- *      PART ONE BELOW
- *
- */
-
 void findTopX(const long *array, long output[], const int length, int outputLength) {
     for (int i = 0; i < length; i++) {
         long max = array[i];
@@ -21,36 +14,7 @@ void findTopX(const long *array, long output[], const int length, int outputLeng
     }
 }
 
-void partOne() {
-    printf("Part One.\n");
-    FILE *file = fopen("./day1/input.txt", "r");
-    char buffer[BUFSIZ] = {"\0"};
-    long memory[BUFSIZ] = {0};
-    int index = 0;
-
-    while (fgets(buffer, sizeof(buffer), file)) {
-        long numeric = strtol(buffer, NULL, 10);
-        if (numeric == 0) {
-            ++index;
-        } else {
-            memory[index] += numeric;
-        }
-    }
-
-    long arr[1] = {0};
-    findTopX(memory, arr, index, 1);
-    fclose(file);
-    printf("%lu\n", arr[0]);
-}
-
-/*
- *
- *      PART TWO BELOW
- *
- */
-
-void partTwo() {
-    printf("Part Two.\n");
+int main() {
     FILE *file = fopen("./day1/input.txt", "r");
 
     char buffer[BUFSIZ] = {"\0"};
@@ -75,11 +39,9 @@ void partTwo() {
     for (int i = 0; i < topCount; i++) {
         topValue += topArray[i];
     }
+    printf("Part One: ");
+    printf("%lu\n", topArray[0]); //Entry 0 is always the highest value.
+    printf("Part Two: ");
     printf("%lu\n", topValue);
-}
-
-int main() {
-    partOne();
-    partTwo();
     return 0;
 }
