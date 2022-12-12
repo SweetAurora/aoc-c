@@ -39,9 +39,7 @@ int main() {
     for (int i = 0; i < topCount; i++) {
         topValue += topArray[i];
     }
-    printf("Part One: ");
-    printf("%lu\n", topArray[0]); //Entry 0 is always the highest value.
-    printf("Part Two: ");
-    printf("%lu\n", topValue);
+    printf("Part One: %lu\n", topArray[0]);
+    printf("Part Two: %lu\n", topValue);
     return 0;
 }
