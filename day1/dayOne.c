@@ -15,7 +15,7 @@ void findTopX(const long *array, long output[], const int length, int outputLeng
 }
 
 int main() {
-    FILE *file = fopen("./day1/input.txt", "r");
+    FILE *file = fopen_s("./day1/input.txt", "r");
 
     char buffer[BUFSIZ] = {"\0"};
     long memory[BUFSIZ] = {0};

@@ -61,7 +61,7 @@ int partTwo(char *groups[3]) {
 }
 
 int main() {
-    FILE *file = fopen("./day3/input.txt", "r");
+    FILE *file = fopen_s("./day3/input.txt", "r");
     int sumOne = 0;
     int sumTwo = 0;
     int groupsFound = 0;
@@ -73,7 +73,7 @@ int main() {
         char *string = buffer;
         sumOne += partOne(string);
         groups[groupsFound] = calloc(1, strlen(string)*sizeof (char));
-        strcpy(groups[groupsFound++], string);
+        strcpy_s(groups[groupsFound++], string);
 
         if (groupsFound == 3) {
             groupsFound = 0;

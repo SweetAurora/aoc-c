@@ -27,7 +27,7 @@ int findIndex(int resultIndex, int opponentIndex) {
 }
 
 int main() {
-    FILE *file = fopen("./day2/input.txt", "r");
+    FILE *file = fopen_s("./day2/input.txt", "r");
 
     int points = 0;
     int pointsTwo = 0;
