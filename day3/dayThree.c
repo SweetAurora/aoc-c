@@ -43,7 +43,6 @@ int partOne(char *string) {
 }
 
 int partTwo(char *groups[3]) {
-    printf("Checking %s against %s against %s\n", groups[0], groups[1], groups[2]);
     for (int x = 0; x < strlen(groups[0]); x++) {
         for (int y = 0; y < strlen(groups[1]); y++) {
             for (int z = 0; z < strlen(groups[2]); z++) {
@@ -63,7 +62,6 @@ int partTwo(char *groups[3]) {
 
 int main() {
     FILE *file = fopen("./day3/input.txt", "r");
-
     int sumOne = 0;
     int sumTwo = 0;
     int groupsFound = 0;
@@ -74,7 +72,8 @@ int main() {
     while (fgets(buffer, sizeof buffer, file)) {
         char *string = buffer;
         sumOne += partOne(string);
-        groups[groupsFound++] = string;
+        groups[groupsFound] = calloc(1, strlen(string)*sizeof (char));
+        strcpy(groups[groupsFound++], string);
 
         if (groupsFound == 3) {
             groupsFound = 0;
@@ -83,5 +82,5 @@ int main() {
     }
 
     printf("Part One: %d\n", sumOne);
-    printf("Part Two: %d", sumTwo);
+    printf("Part Two: %d\n", sumTwo);
 }
